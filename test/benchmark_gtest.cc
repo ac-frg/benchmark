@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "../src/benchmark_register.h"
-#include "benchmark/benchmark.h"
+#include "benchmark/benchmark_api.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
