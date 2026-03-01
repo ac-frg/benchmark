@@ -15,6 +15,11 @@
 #ifndef BENCHMARK_SYSINFO_H_
 #define BENCHMARK_SYSINFO_H_
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#endif
+
 #include <string>
 #include <vector>
 
@@ -58,5 +63,9 @@ struct BENCHMARK_EXPORT SystemInfo {
 };
 
 }  // namespace benchmark
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif  // BENCHMARK_SYSINFO_H_

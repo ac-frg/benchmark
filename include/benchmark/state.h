@@ -37,7 +37,7 @@ class ProfilerManager;
 
 #if defined(_MSC_VER)
 #pragma warning(push)
-#pragma warning(disable : 4324)
+#pragma warning(disable : 4251 4324)
 #endif
 class BENCHMARK_EXPORT BENCHMARK_INTERNAL_CACHELINE_ALIGNED State {
  public:
@@ -259,5 +259,9 @@ inline BENCHMARK_ALWAYS_INLINE State::StateIterator State::end() {
 }
 
 }  // namespace benchmark
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif  // BENCHMARK_STATE_H_

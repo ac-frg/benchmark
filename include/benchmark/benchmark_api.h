@@ -15,6 +15,11 @@
 #ifndef BENCHMARK_BENCHMARK_API_H_
 #define BENCHMARK_BENCHMARK_API_H_
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#endif
+
 #include <functional>
 #include <memory>
 #include <string>
@@ -279,5 +284,9 @@ BENCHMARK_EXPORT
 std::vector<int64_t> CreateDenseRange(int64_t start, int64_t limit, int step);
 
 }  // namespace benchmark
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif  // BENCHMARK_BENCHMARK_API_H_

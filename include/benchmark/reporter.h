@@ -15,6 +15,12 @@
 #ifndef BENCHMARK_REPORTER_H_
 #define BENCHMARK_REPORTER_H_
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+// C4251: <symbol> needs to have dll-interface to be used by clients of class
+#pragma warning(disable : 4251)
+#endif
+
 #include <cassert>
 #include <iostream>
 #include <set>
@@ -224,5 +230,9 @@ inline double GetTimeUnitMultiplier(TimeUnit unit) {
 }
 
 }  // namespace benchmark
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif  // BENCHMARK_REPORTER_H_
