@@ -19,7 +19,9 @@
 #include <tuple>
 #include <vector>
 
-#include "benchmark/benchmark.h"
+#include "benchmark/benchmark_api.h"
+#include "benchmark/reporter.h"
+#include "benchmark/sysinfo.h"
 #include "check.h"
 #include "string_util.h"
 #include "timers.h"
