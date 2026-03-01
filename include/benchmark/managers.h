@@ -16,6 +16,7 @@
 #define BENCHMARK_MANAGERS_H_
 
 #include <stdint.h>
+
 #include <limits>
 
 #include "benchmark/macros.h"
@@ -62,4 +63,4 @@ void RegisterProfilerManager(ProfilerManager* profiler_manager);
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_MANAGERS_H_
+#endif  // BENCHMARK_MANAGERS_H_

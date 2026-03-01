@@ -16,9 +16,10 @@
 #define BENCHMARK_TYPES_H_
 
 #include <stdint.h>
-#include <string>
-#include <memory>
+
 #include <functional>
+#include <memory>
+#include <string>
 
 #include "benchmark/export.h"
 
@@ -46,4 +47,4 @@ enum TimeUnit { kNanosecond, kMicrosecond, kMillisecond, kSecond };
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_TYPES_H_
+#endif  // BENCHMARK_TYPES_H_

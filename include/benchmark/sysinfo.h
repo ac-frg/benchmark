@@ -59,4 +59,4 @@ struct BENCHMARK_EXPORT SystemInfo {
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_SYSINFO_H_
+#endif  // BENCHMARK_SYSINFO_H_

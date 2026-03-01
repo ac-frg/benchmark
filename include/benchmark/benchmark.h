@@ -15,16 +15,16 @@
 #ifndef BENCHMARK_BENCHMARK_H_
 #define BENCHMARK_BENCHMARK_H_
 
+#include "benchmark/benchmark_api.h"
+#include "benchmark/counter.h"
 #include "benchmark/macros.h"
+#include "benchmark/managers.h"
+#include "benchmark/registration.h"
+#include "benchmark/reporter.h"
+#include "benchmark/state.h"
+#include "benchmark/statistics.h"
+#include "benchmark/sysinfo.h"
 #include "benchmark/types.h"
 #include "benchmark/utils.h"
-#include "benchmark/counter.h"
-#include "benchmark/statistics.h"
-#include "benchmark/state.h"
-#include "benchmark/managers.h"
-#include "benchmark/benchmark_api.h"
-#include "benchmark/registration.h"
-#include "benchmark/sysinfo.h"
-#include "benchmark/reporter.h"
 
-#endif // BENCHMARK_BENCHMARK_H_
+#endif  // BENCHMARK_BENCHMARK_H_

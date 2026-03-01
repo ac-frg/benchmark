@@ -62,4 +62,4 @@ enum Skipped : unsigned {
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_STATISTICS_H_
+#endif  // BENCHMARK_STATISTICS_H_

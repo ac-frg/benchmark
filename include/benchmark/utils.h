@@ -149,4 +149,4 @@ inline BENCHMARK_ALWAYS_INLINE void DoNotOptimize(Tp&& value) {
 
 }  // end namespace benchmark
 
-#endif // BENCHMARK_UTILS_H_
+#endif  // BENCHMARK_UTILS_H_

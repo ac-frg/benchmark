@@ -53,19 +53,20 @@
 #define BENCHMARK_INTERNAL_TOSTRING2(x) #x
 #define BENCHMARK_INTERNAL_TOSTRING(x) BENCHMARK_INTERNAL_TOSTRING2(x)
 
-#if (defined(__GNUC__) && !defined(__NVCC__) && !defined(__NVCOMPILER)) || defined(__clang__)
+#if (defined(__GNUC__) && !defined(__NVCC__) && !defined(__NVCOMPILER)) || \
+    defined(__clang__)
 #define BENCHMARK_BUILTIN_EXPECT(x, y) __builtin_expect(x, y)
 #define BENCHMARK_DEPRECATED_MSG(msg) __attribute__((deprecated(msg)))
 #define BENCHMARK_DISABLE_DEPRECATED_WARNING \
   _Pragma("GCC diagnostic push")             \
-  _Pragma("GCC diagnostic ignored \"-Wdeprecated-declarations\"")
+      _Pragma("GCC diagnostic ignored \"-Wdeprecated-declarations\"")
 #define BENCHMARK_RESTORE_DEPRECATED_WARNING _Pragma("GCC diagnostic pop")
 #elif defined(__NVCOMPILER)
 #define BENCHMARK_BUILTIN_EXPECT(x, y) __builtin_expect(x, y)
 #define BENCHMARK_DEPRECATED_MSG(msg) __attribute__((deprecated(msg)))
 #define BENCHMARK_DISABLE_DEPRECATED_WARNING \
-  _Pragma("diagnostic push") \
-  _Pragma("diag_suppress deprecated_entity_with_custom_message")
+  _Pragma("diagnostic push")                 \
+      _Pragma("diag_suppress deprecated_entity_with_custom_message")
 #define BENCHMARK_RESTORE_DEPRECATED_WARNING _Pragma("diagnostic pop")
 #elif defined(_MSC_VER)
 #define BENCHMARK_BUILTIN_EXPECT(x, y) x
@@ -74,8 +75,7 @@
   __pragma(message(__FILE__ "(" BENCHMARK_INTERNAL_TOSTRING( \
       __LINE__) ") : warning note: " msg))
 #define BENCHMARK_DISABLE_DEPRECATED_WARNING \
-  __pragma(warning(push)) \
-  __pragma(warning(disable : 4996))
+  __pragma(warning(push)) __pragma(warning(disable : 4996))
 #define BENCHMARK_RESTORE_DEPRECATED_WARNING __pragma(warning(pop))
 #else
 #define BENCHMARK_BUILTIN_EXPECT(x, y) x
@@ -133,4 +133,4 @@
 #define BENCHMARK_INTERNAL_CACHELINE_ALIGNED
 #endif
 
-#endif // BENCHMARK_MACROS_H_
+#endif  // BENCHMARK_MACROS_H_

@@ -15,14 +15,14 @@
 #ifndef BENCHMARK_REGISTRATION_H_
 #define BENCHMARK_REGISTRATION_H_
 
-#include "benchmark/macros.h"
 #include "benchmark/benchmark_api.h"
+#include "benchmark/macros.h"
 
 #if defined(__clang__)
-#define BENCHMARK_DISABLE_COUNTER_WARNING                        \
-  _Pragma("GCC diagnostic push")                                 \
-  _Pragma("GCC diagnostic ignored \"-Wunknown-warning-option\"") \
-  _Pragma("GCC diagnostic ignored \"-Wc2y-extensions\"")
+#define BENCHMARK_DISABLE_COUNTER_WARNING                            \
+  _Pragma("GCC diagnostic push")                                     \
+      _Pragma("GCC diagnostic ignored \"-Wunknown-warning-option\"") \
+          _Pragma("GCC diagnostic ignored \"-Wc2y-extensions\"")
 #define BENCHMARK_RESTORE_COUNTER_WARNING _Pragma("GCC diagnostic pop")
 #else
 #define BENCHMARK_DISABLE_COUNTER_WARNING
@@ -255,4 +255,4 @@ BENCHMARK_RESTORE_COUNTER_WARNING
   }                                                                     \
   int main(int, char**)
 
-#endif // BENCHMARK_REGISTRATION_H_
+#endif  // BENCHMARK_REGISTRATION_H_

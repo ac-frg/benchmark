@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "benchmark/reporter.h"
+
 #include <cstdlib>
 #include <iostream>
 #include <map>
@@ -20,7 +22,6 @@
 #include <vector>
 
 #include "benchmark/benchmark_api.h"
-#include "benchmark/reporter.h"
 #include "benchmark/sysinfo.h"
 #include "check.h"
 #include "string_util.h"
@@ -33,10 +34,10 @@ BenchmarkReporter::BenchmarkReporter()
 
 BenchmarkReporter::~BenchmarkReporter() {}
 
-void BenchmarkReporter::PrintBasicContext(std::ostream *out,
-                                          Context const &context) {
+void BenchmarkReporter::PrintBasicContext(std::ostream* out,
+                                          Context const& context) {
   BM_CHECK(out) << "cannot be null";
-  auto &Out = *out;
+  auto& Out = *out;
 
 #ifndef BENCHMARK_OS_QURT
   // Date/time information is not available on QuRT.
@@ -49,13 +50,13 @@ void BenchmarkReporter::PrintBasicContext(std::ostream *out,
         << "\n";
   }
 
-  const CPUInfo &info = context.cpu_info;
+  const CPUInfo& info = context.cpu_info;
   Out << "Run on (" << info.num_cpus << " X "
       << (info.cycles_per_second / 1000000.0) << " MHz CPU "
       << ((info.num_cpus > 1) ? "s" : "") << ")\n";
   if (!info.caches.empty()) {
     Out << "CPU Caches:\n";
-    for (const auto &CInfo : info.caches) {
+    for (const auto& CInfo : info.caches) {
       Out << "  L" << CInfo.level << " " << CInfo.type << " "
           << (CInfo.size / 1024) << " KiB";
       if (CInfo.num_sharing != 0) {
@@ -75,11 +76,11 @@ void BenchmarkReporter::PrintBasicContext(std::ostream *out,
     Out << "\n";
   }
 
-  std::map<std::string, std::string> *global_context =
+  std::map<std::string, std::string>* global_context =
       internal::GetGlobalContext();
 
   if (global_context != nullptr) {
-    for (const auto &kv : *global_context) {
+    for (const auto& kv : *global_context) {
       Out << kv.first << ": " << kv.second << "\n";
     }
   }
@@ -90,7 +91,7 @@ void BenchmarkReporter::PrintBasicContext(std::ostream *out,
            "overhead.\n";
   }
 
-  const SystemInfo &sysinfo = context.sys_info;
+  const SystemInfo& sysinfo = context.sys_info;
   if (SystemInfo::ASLR::ENABLED == sysinfo.ASLRStatus) {
     Out << "***WARNING*** ASLR is enabled, the results may have unreproducible "
            "noise in them.\n";
@@ -103,7 +104,7 @@ void BenchmarkReporter::PrintBasicContext(std::ostream *out,
 }
 
 // No initializer because it's already initialized to NULL.
-const char *BenchmarkReporter::Context::executable_name;
+const char* BenchmarkReporter::Context::executable_name;
 
 BenchmarkReporter::Context::Context()
     : cpu_info(CPUInfo::Get()), sys_info(SystemInfo::Get()) {}

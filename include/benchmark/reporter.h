@@ -15,18 +15,18 @@
 #ifndef BENCHMARK_REPORTER_H_
 #define BENCHMARK_REPORTER_H_
 
+#include <cassert>
+#include <iostream>
 #include <set>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <cassert>
 
-#include "benchmark/macros.h"
-#include "benchmark/types.h"
-#include "benchmark/sysinfo.h"
 #include "benchmark/counter.h"
-#include "benchmark/statistics.h"
+#include "benchmark/macros.h"
 #include "benchmark/managers.h"
+#include "benchmark/statistics.h"
+#include "benchmark/sysinfo.h"
+#include "benchmark/types.h"
 
 namespace benchmark {
 
@@ -223,6 +223,6 @@ inline double GetTimeUnitMultiplier(TimeUnit unit) {
   BENCHMARK_UNREACHABLE();
 }
 
-} // namespace benchmark
+}  // namespace benchmark
 
-#endif // BENCHMARK_REPORTER_H_
+#endif  // BENCHMARK_REPORTER_H_

@@ -37,10 +37,7 @@ class Counter {
     kInvert = 1 << 31
   };
 
-  enum OneK {
-    kIs1000 = 1000,
-    kIs1024 = 1024
-  };
+  enum OneK { kIs1000 = 1000, kIs1024 = 1024 };
 
   double value;
   Flags flags;
@@ -67,8 +64,8 @@ void Finish(UserCounters* l, IterationCount iterations, double cpu_time,
             double num_threads);
 void Increment(UserCounters* l, UserCounters const& r);
 bool SameNames(UserCounters const& l, UserCounters const& r);
-} // namespace internal
+}  // namespace internal
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_COUNTER_H_
+#endif  // BENCHMARK_COUNTER_H_

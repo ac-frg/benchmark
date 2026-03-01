@@ -15,17 +15,17 @@
 #ifndef BENCHMARK_BENCHMARK_API_H_
 #define BENCHMARK_BENCHMARK_API_H_
 
-#include <string>
-#include <vector>
-#include <memory>
-#include <utility>
 #include <functional>
+#include <memory>
+#include <string>
+#include <utility>
+#include <vector>
 
+#include "benchmark/counter.h"
 #include "benchmark/macros.h"
-#include "benchmark/types.h"
 #include "benchmark/state.h"
 #include "benchmark/statistics.h"
-#include "benchmark/counter.h"
+#include "benchmark/types.h"
 
 namespace benchmark {
 
@@ -83,7 +83,7 @@ using threadrunner_factory =
 namespace internal {
 class BenchmarkFamilies;
 class BenchmarkInstance;
-}
+}  // namespace internal
 
 class BENCHMARK_EXPORT Benchmark {
  public:
@@ -184,11 +184,11 @@ class BENCHMARK_EXPORT Benchmark {
 };
 
 namespace internal {
-typedef BENCHMARK_DEPRECATED_MSG("Use ::benchmark::Benchmark instead")
-    ::benchmark::Benchmark Benchmark;
 typedef BENCHMARK_DEPRECATED_MSG(
-    "Use ::benchmark::threadrunner_factory instead")
-    ::benchmark::threadrunner_factory threadrunner_factory;
+    "Use ::benchmark::Benchmark instead")::benchmark::Benchmark Benchmark;
+typedef BENCHMARK_DEPRECATED_MSG(
+    "Use ::benchmark::threadrunner_factory instead")::benchmark::
+    threadrunner_factory threadrunner_factory;
 
 typedef void(Function)(State&);
 
@@ -213,6 +213,7 @@ class BENCHMARK_EXPORT FunctionBenchmark : public benchmark::Benchmark {
   FunctionBenchmark(const std::string& name, Function* func)
       : Benchmark(name), func_(func) {}
   void Run(State& st) override;
+
  private:
   Function* func_;
 };
@@ -224,6 +225,7 @@ class LambdaBenchmark : public benchmark::Benchmark {
   template <class OLambda>
   LambdaBenchmark(const std::string& name, OLambda&& lam)
       : Benchmark(name), lambda_(std::forward<OLambda>(lam)) {}
+
  private:
   LambdaBenchmark(LambdaBenchmark const&) = delete;
   Lambda lambda_;
@@ -265,6 +267,7 @@ class Fixture : public Benchmark {
   virtual void TearDown(const State&) {}
   virtual void SetUp(State& st) { SetUp(const_cast<const State&>(st)); }
   virtual void TearDown(State& st) { TearDown(const_cast<const State&>(st)); }
+
  protected:
   virtual void BenchmarkCase(State&) = 0;
 };
@@ -277,4 +280,4 @@ std::vector<int64_t> CreateDenseRange(int64_t start, int64_t limit, int step);
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_BENCHMARK_API_H_
+#endif  // BENCHMARK_BENCHMARK_API_H_

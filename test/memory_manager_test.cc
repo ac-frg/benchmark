@@ -1,9 +1,9 @@
 #include <memory>
 
 #include "benchmark/benchmark_api.h"
+#include "benchmark/managers.h"
 #include "benchmark/registration.h"
 #include "benchmark/state.h"
-#include "benchmark/managers.h"
 #include "benchmark/utils.h"
 #include "output_test.h"
 

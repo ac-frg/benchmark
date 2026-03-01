@@ -1,7 +1,3 @@
-#include "benchmark/registration.h"
-#include "benchmark/state.h"
-#include "benchmark/utils.h"
-
 #include <assert.h>
 #include <math.h>
 #include <stdint.h>
@@ -20,6 +16,10 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
+
+#include "benchmark/registration.h"
+#include "benchmark/state.h"
+#include "benchmark/utils.h"
 
 #if defined(__GNUC__)
 #define BENCHMARK_NOINLINE __attribute__((noinline))

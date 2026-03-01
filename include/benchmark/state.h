@@ -19,10 +19,10 @@
 #include <string>
 #include <vector>
 
-#include "benchmark/macros.h"
-#include "benchmark/types.h"
 #include "benchmark/counter.h"
+#include "benchmark/macros.h"
 #include "benchmark/statistics.h"
+#include "benchmark/types.h"
 
 namespace benchmark {
 
@@ -31,7 +31,7 @@ class BenchmarkInstance;
 class ThreadTimer;
 class ThreadManager;
 class PerfCountersMeasurement;
-}
+}  // namespace internal
 
 class ProfilerManager;
 
@@ -260,4 +260,4 @@ inline BENCHMARK_ALWAYS_INLINE State::StateIterator State::end() {
 
 }  // namespace benchmark
 
-#endif // BENCHMARK_STATE_H_
+#endif  // BENCHMARK_STATE_H_

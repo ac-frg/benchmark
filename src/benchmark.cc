@@ -17,7 +17,6 @@
 #include "benchmark/reporter.h"
 #include "benchmark/state.h"
 #include "benchmark/types.h"
-
 #include "benchmark_api_internal.h"
 #include "benchmark_runner.h"
 #include "internal_macros.h"
