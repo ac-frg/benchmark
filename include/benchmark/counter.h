@@ -15,6 +15,11 @@
 #ifndef BENCHMARK_COUNTER_H_
 #define BENCHMARK_COUNTER_H_
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#endif
+
 #include <map>
 #include <string>
 
@@ -23,7 +28,7 @@
 
 namespace benchmark {
 
-class Counter {
+class BENCHMARK_EXPORT Counter {
  public:
   enum Flags {
     kDefaults = 0,
@@ -57,7 +62,7 @@ Counter::Flags inline operator|(const Counter::Flags& LHS,
                                      static_cast<int>(RHS));
 }
 
-typedef std::map<std::string, Counter> UserCounters;
+using UserCounters = std::map<std::string, Counter>;
 
 namespace internal {
 void Finish(UserCounters* l, IterationCount iterations, double cpu_time,
@@ -67,5 +72,9 @@ bool SameNames(UserCounters const& l, UserCounters const& r);
 }  // namespace internal
 
 }  // namespace benchmark
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif  // BENCHMARK_COUNTER_H_

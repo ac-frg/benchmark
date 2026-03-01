@@ -15,6 +15,11 @@
 #ifndef BENCHMARK_STATE_H_
 #define BENCHMARK_STATE_H_
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4251 4324)
+#endif
+
 #include <cassert>
 #include <string>
 #include <vector>
@@ -35,10 +40,6 @@ class PerfCountersMeasurement;
 
 class ProfilerManager;
 
-#if defined(_MSC_VER)
-#pragma warning(push)
-#pragma warning(disable : 4251 4324)
-#endif
 class BENCHMARK_EXPORT BENCHMARK_INTERNAL_CACHELINE_ALIGNED State {
  public:
   struct StateIterator;
@@ -174,9 +175,6 @@ class BENCHMARK_EXPORT BENCHMARK_INTERNAL_CACHELINE_ALIGNED State {
 
   friend class internal::BenchmarkInstance;
 };
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#endif
 
 inline BENCHMARK_ALWAYS_INLINE bool State::KeepRunning() {
   return KeepRunningInternal(1, /*is_batch=*/false);
