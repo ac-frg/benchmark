@@ -192,11 +192,11 @@ typedef BENCHMARK_DEPRECATED_MSG(
 
 typedef void(Function)(State&);
 
-::benchmark::Benchmark* RegisterBenchmarkInternal(
+BENCHMARK_EXPORT ::benchmark::Benchmark* RegisterBenchmarkInternal(
     std::unique_ptr<::benchmark::Benchmark>);
 BENCHMARK_EXPORT std::map<std::string, std::string>*& GetGlobalContext();
-void UseCharPointer(char const volatile*);
-int InitializeStreams();
+BENCHMARK_EXPORT void UseCharPointer(char const volatile*);
+BENCHMARK_EXPORT int InitializeStreams();
 BENCHMARK_UNUSED static int stream_init_anchor = InitializeStreams();
 }  // namespace internal
 

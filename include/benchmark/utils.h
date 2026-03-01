@@ -24,7 +24,7 @@
 namespace benchmark {
 
 namespace internal {
-void UseCharPointer(char const volatile*);
+BENCHMARK_EXPORT void UseCharPointer(char const volatile*);
 }
 
 #if (!defined(__GNUC__) && !defined(__clang__)) || defined(__pnacl__) || \
